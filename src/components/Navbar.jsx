@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-     <Box px={4} mb={20} className='ChackraNavBar' shadow='2xl' borderBottom={{base : '0px', md :'1px solid black'}} padding='10px' position={"relative"} zIndex="-1">
+     <Box px={4}  className='ChackraNavBar' shadow='2xl' borderBottom={{base : '0px', md :'1px solid black'}} padding='10px' position={"relative"} zIndex="-1">
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
             <IconButton color='black' size='md' bg='white' icon={isOpen ? <CloseIcon /> : <HamburgerIcon fontSize='30px'/>} aria-label='Open Menu' display={{ md: 'none' }} onClick={isOpen ? onClose : onOpen}/>
               

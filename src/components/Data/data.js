@@ -1,7 +1,7 @@
  export const data = [
     {
          "id":1,
-        "title":"AdvancedCare",
+        "title":"Advanced Care",
          "description":"With our trained and talented staff, we make sure our patients get utmost care and are made to feel at home, without any inconvenience."
     },
     {     

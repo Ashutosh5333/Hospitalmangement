@@ -28,10 +28,9 @@ const Login = () => {
    
            <Heading style={{fontSize:"1.8em", fontWeight:"600", fontFamily:"sans-serif", letterSpacing:".2px" }}> 
              <Box  margin="auto" justifyContent={"center"} marginLeft="70px" >
-            <Image src={khushi} alt="khushi"/>
+             <Image  src="https://regencyhealthcare.in/wp-content/uploads/2022/01/Regency-logo-250x75-1.png" />
              </Box>
-           Khushi Hospital
-
+            
           </Heading>
           <br/>
           <br/>

@@ -1,30 +1,30 @@
 import React from 'react'
 import { Box, Image, SimpleGrid, Text } from '@chakra-ui/react';
 import {data} from "./Data/data"
-// console.log(data)
+
 
 
 const Home = () => {
 
   return (
     <>
-    <Box border="1px solid red" >
+    <Box >
 
-       <Box  width={{base : "70%", md :'85%', lg : '90%'}} margin="auto" position={"relative"} zIndex="-2">
+       <Box  width={{base : "80%", md :'95%', lg : '90%'}} margin="auto" position={"relative"} zIndex="-2">
            <Image src="https://regencyhealthcare.in/wp-content/uploads/2021/12/NWB_4@72x-100.jpg" alt="regencyImage" />
        </Box>
-       <Box border={"1px solid green"}  display="flex" width={"90%"} margin="auto">
+       <Box display="flex" width={"90%"} margin="auto">
           
-          <SimpleGrid  columns={[2, 4, 4]} spacing={6}>
+          <SimpleGrid  columns={[2, 2, 4]} >
              {
                data.length>0 && data.map((el) => {
-                return  <Box  key={el.id} border={"5px solid red"}  width={"100%"} margin="auto" > 
-               <Box border={"2px solid yellow"} width="90%" margin={"auto"} height="35vh">
+                return  <Box  key={el.id}  background="#DB2637"  width={{base : "90%", md :'95%', lg : '100%'}}  margin="auto" shadow={"lg"} height="40vh"> 
+               <Box  width="95%" margin={"auto"} >
                  <Box mt="4">
-                   <Text textAlign={"start"}> {el.title} </Text>
+                   <Text color="#FFFFFF" fontSize={"1.5rem"} fontWeight="600" textAlign={"start"} borderBottom="3px solid #fff"> {el.title} </Text>
                  </Box>
                   <Box mt="4">
-                   <Text textAlign={"start"}> {el.description} </Text>
+                   <Text color="#FFFFFF" lineHeight={"1.5rem"} textAlign={"start"}>  {el.description} </Text>
                   </Box>
                </Box>
             </Box>
