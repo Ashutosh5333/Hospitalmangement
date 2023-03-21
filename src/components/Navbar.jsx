@@ -15,8 +15,8 @@ const Navbar = () => {
 
   return (
     <>
-     <Box px={4} mb={20} className='ChackraNavBar' shadow='2xl' borderBottom={{base : '0px', md :'1px solid black'}} padding='10px'>
-          <Flex h={12} alignItems={'center'} justifyContent={'space-between'}>
+     <Box px={4} mb={20} className='ChackraNavBar' shadow='2xl' borderBottom={{base : '0px', md :'1px solid black'}} padding='10px' position={"relative"} zIndex="-1">
+          <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
             <IconButton color='black' size='md' bg='white' icon={isOpen ? <CloseIcon /> : <HamburgerIcon fontSize='30px'/>} aria-label='Open Menu' display={{ md: 'none' }} onClick={isOpen ? onClose : onOpen}/>
               
             <Flex width={{base : "20%", md :'13%', lg : '10%'}} justifyContent={'center'} >
@@ -25,12 +25,12 @@ const Navbar = () => {
 
               <Flex as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }} gap='10px' w={{base : '', md : '90%', lg : '95%'}} justifyContent='space-around' alignItems='center' padding='10px'>
                
-               <Flex width={{base : 0, md : "20%", lg :'10%'}} justifyContent='space-around' >
+               <Flex width={{base : 0, md : "20%", lg :'10%'}} justifyContent='space-around' gap='10px' >
                <Link to="/dash"><Text _hover={{borderBottom : "1px solid black", fontWeight : "550"}}>Standard </Text></Link>
                <Link to="/dash"><Text _hover={{borderBottom : "1px solid black", fontWeight : "550"}}>Premium </Text></Link>
                </Flex>
 
-               <Flex width={{base : '0', md : '60%', lg :'75%'}} border={'1px solid black'} padding='5px' alignItems='center'>
+               <Flex width={{base : '0', md : '60%', lg :'65%'}} border={'1px solid black'} padding='5px' alignItems='center'>
                 <Text ml='10px'><BsSearch/></Text>
                 <Input borderRadius='0px' border='0px' placeholder='SEARCH' variant="unstyled" padding='5px'/>
                </Flex>
