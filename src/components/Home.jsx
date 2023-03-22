@@ -34,15 +34,7 @@ const Home = () => {
 
           </SimpleGrid>
 
-            {/* <Box border={"5px solid red"}  width={"25%"} margin="auto" > 
-             <Text>First A</Text>
-            </Box>
-            <Box border={"5px solid red"}  width={"25%"} margin="auto" > 
-             <Text>First A</Text>
-            </Box>
-            <Box border={"5px solid red"}   width={"25%"} margin="auto"> 
-             <Text>First A</Text>
-            </Box> */}
+          
 
        </Box>
 

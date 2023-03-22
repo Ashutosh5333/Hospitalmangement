@@ -1,0 +1,27 @@
+
+.category{
+     /* border: 1px solid red; */
+     background: rgb(217, 63, 63);
+     border-radius: 10px;
+}
+
+.category:hover{
+    background: rgb(205, 36, 36);
+     color: #fff;
+}
+
+.text{
+    color: #fff;
+    padding: 10px;
+}
+
+.text:hover{
+    color: #fff;
+}
+
+@media screen and (max-width:1024px) {
+      .text{
+        padding: 10px;
+      }
+    
+}

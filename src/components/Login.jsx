@@ -1,7 +1,7 @@
 import {FormControl, Box, Input,FormLabel,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import khushi from "../assests/khushi.png"
+
 
 const Login = () => {
 

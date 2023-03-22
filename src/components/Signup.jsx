@@ -1,6 +1,6 @@
 import {FormControl, Box, Input,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
 import React from 'react'
-import khushi from "../assests/khushi.png"
+
 
 const Signup = () => {
 

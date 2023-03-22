@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getData } from './fetch';
+
+// https://tame-plum-narwhal-kilt.cyclic.app/doctor
+
 
 const Dashboard = () => {
+   
+
+
   return (
-    <div>Dashboard</div>
+    <div>
+      Dashboard
+    </div>
   )
 }
 
