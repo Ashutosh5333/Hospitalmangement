@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getData } from './fetch';
+
 
 // https://tame-plum-narwhal-kilt.cyclic.app/doctor
 

@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react';
-
- 
+import { Link } from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux"
+import { GetDoctorData } from '../Redux/AppReducer/Action';
  
 
 const Doctor = () => {
-    const [data, Setdata] = useState([])
-    const [loading,Setloading] = useState(false)
+    
+    const [isLoading,Setloading] = useState(false)
+     const dispatch = useDispatch()
+    const Doctor = useSelector((store) => store.Doctordata)
+     console.log( "redux",Doctor)
 
+       useEffect(() =>{
+         Setloading(true)
+          dispatch(GetDoctorData)
+          Setloading(false)
+       },[])
   
-    useEffect(() =>{
-          Setloading(true)
-        fetch(`https://tame-plum-narwhal-kilt.cyclic.app/doctor`)
-        .then((res) =>res.json())
-        .then((res) =>{
-            Setloading(false)
-            Setdata(res)
-        })
-        .catch((err) =>console.log(err))
-     },[])
-
-     console.log("data",data)
-
-
   return (
     <>
      <Box mt="5">
@@ -32,11 +27,13 @@ const Doctor = () => {
          </Box>
 
          <Box  width="90%" m="auto" mt="5">
-           <SimpleGrid columns={[1, 2, 4]} spacing={6}> 
+
+           <SimpleGrid columns={[1, 2, 4]} spacing={6} > 
             {
-                loading ? <h1> Loading .......</h1> :
-                 data.length>0 && data.map((el) => {
-                    return <Box key={el._id} background="#f1f1f1" paddingBottom={"20"}  >  
+              isLoading ? <h1> Loading .......</h1> :
+                Doctor.length>0 && Doctor.map((el) => {
+                    return <Box key={el._id} border="1px solid red" background="#f1f1f1" paddingBottom={"20"}  >  
+                       <Link to={`/doctor/${el._id}`}> 
                             <Box boxShadow='lg' border={"0.1px solid gray"}  width="100%"  margin={"auto"} justifyContent="center" justifyItems={"center"}>
                             <Image src={el.pic}  alt="doctorimage" width="100%"  height={{ base: "500px", md: "400px", lg: "300px" }} />
                            </Box>
@@ -47,15 +44,17 @@ const Doctor = () => {
                            <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight="400"  color="#444"> {el.consultant} </Text> 
                             </Box>
                             <Box width={"90%"} m="auto" mt="5"p="10px">
-                           <Heading fontSize={"1.6rem"} fontWeight="500" textAlign={"start"}     font-family="Playfair Display"> {el.name} </Heading>
+                           <Heading fontSize={"1.6rem"} fontWeight="500" textAlign={"start"}     font-Family="Playfair Display"> {el.name} </Heading>
                             </Box>
                         
                          <Box width={"90%"} m="auto" mt="5" p="10px">
                           <Text color="#444" textAlign={"start"} lineHeight={"1.7rem"} fontWeight="400">{el.About}</Text>
                          </Box>
+                         </Link>
                     
                     </Box>
                  })
+                  
                
             }
           </SimpleGrid>
