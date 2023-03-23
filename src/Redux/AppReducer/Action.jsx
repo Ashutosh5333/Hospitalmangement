@@ -15,12 +15,33 @@ import axios from "axios"
     }
 }
 
-
 const getdatafailure = () =>{
     return {
        type:types.GETDOCTORFAILURE 
     }
 }
+
+
+const getsingledatareq = () =>{
+    return {
+       type:types.GETDOCTORREQ 
+    }
+}
+
+const getsingledatasuccess = (payload) =>{
+   return {
+      type:types.GETDOCTORSUCESS,
+      payload 
+   }
+}
+
+const getsingledatafailure = () =>{
+   return {
+      type:types.GETDOCTORFAILURE 
+   }
+}
+
+
 
  export const GetDoctorData = (dispatch) =>{
      dispatch(getdatareq())
@@ -33,3 +54,16 @@ const getdatafailure = () =>{
      })
 
  } 
+
+ 
+ export const GetSingleDoctorData = (_id) => (dispatch) =>{
+    dispatch(getsingledatareq())
+   return axios.get(`https://tame-plum-narwhal-kilt.cyclic.app/doctor/${_id}`)
+    .then((r) =>{
+return        dispatch(getsingledatasuccess(r.data))
+    })
+    .catch((err) =>{
+        dispatch(getsingledatafailure())
+    })
+
+} 

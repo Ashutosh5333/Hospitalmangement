@@ -37,7 +37,7 @@ const Navbar = () => {
                <Flex width={{base : "", md  : '25%', lg :'15%'}} justifyContent='space-around' fontSize='25px'>
                <Tooltip bg='#CBD5E0' color='black' label="login"><Link to="/login"><Text><BiLogIn/></Text></Link></Tooltip>
                <Tooltip bg='#CBD5E0' color='black' label='Cart'><Link to='/cart'><Text><BsCartCheck/></Text></Link></Tooltip>
-              <Tooltip bg='#CBD5E0' color='black' label="Userprofile"><Link><Text><FaUserCircle/></Text></Link></Tooltip>
+              <Tooltip bg='#CBD5E0' color='black' label="Userprofile"><Link to="/userprofile"><Text><FaUserCircle/></Text></Link></Tooltip>
               </Flex>
               </Flex>
           </Flex> 

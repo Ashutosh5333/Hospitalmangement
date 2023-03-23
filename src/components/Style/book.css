@@ -1,0 +1,38 @@
+
+ .Image-background{
+ /* border: 1px solid red; */
+  margin: auto;
+   width: 90%;
+ }
+
+ .book-now{
+      padding: 10px 30px;
+      background-color: #fff;
+      color: black;
+      font-weight: 600;
+      border-radius: 5px;
+ }
+
+ .book-now:hover{
+     background-color: black;
+      color: #fff;
+      font-weight: 500;
+ }
+
+
+
+@media screen and (max-width:667px) {
+    .Image-background{
+         flex-direction: column;
+    }
+    
+    .doctor-image{
+         width: 50%;
+    }
+
+    .input{
+      flex-direction: column;
+      margin: auto;
+    }   
+
+}

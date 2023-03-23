@@ -8,6 +8,7 @@ import Cart from '../components/Cart';
 import Doctor from '../components/Doctor';
 import NotFound from '../NotFound';
 import BookAppoinment from '../components/BookAppoinment';
+import UserProfile from '../components/UserProfile/UserProfile';
 
 
 const MainRoute = () => {
@@ -22,6 +23,7 @@ const MainRoute = () => {
      <Route  path="/doctor" element={<Doctor/>} />
      <Route  path='/doctor/:id' element={<BookAppoinment/>}/>
      <Route  path='*' element={<NotFound/>} />
+     <Route path='/userprofile' element={<UserProfile/>} />
     </Routes>
   )
 }
