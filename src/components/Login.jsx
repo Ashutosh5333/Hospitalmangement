@@ -1,6 +1,7 @@
-import {FormControl, Box, Input,FormLabel,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
+import {FormControl, Box, Input,FormLabel,  Heading,  Button, Text, Image} from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -34,7 +35,9 @@ const Login = () => {
           </Heading>
           <br/>
           <br/>
-            <Button fontSize={"1.2em"} fontWeight="600" width="full" background={"blue.500"}  colorScheme="blue" color="#fff" > Login in with Facebook </Button>
+             <Link to="/signup">
+            <Button fontSize={"1.2em"} fontWeight="600" width="full" background={"blue.500"}  colorScheme="blue" color="#fff" >Create you Account</Button>
+             </Link>
             <br/><br/>
                    <Text>  OR   </Text> 
             <br/>  

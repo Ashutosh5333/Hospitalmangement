@@ -9,6 +9,8 @@ import Doctor from '../components/Doctor';
 import NotFound from '../NotFound';
 import BookAppoinment from '../components/BookAppoinment';
 import UserProfile from '../components/UserProfile/UserProfile';
+import Room from './../components/Room/Room';
+import Specility from '../components/Specility';
 
 
 const MainRoute = () => {
@@ -22,8 +24,10 @@ const MainRoute = () => {
      <Route  path="/cart" element={<Cart/>} />
      <Route  path="/doctor" element={<Doctor/>} />
      <Route  path='/doctor/:id' element={<BookAppoinment/>}/>
-     <Route  path='*' element={<NotFound/>} />
      <Route path='/userprofile' element={<UserProfile/>} />
+     <Route path='/faculty' element={<Room/>} />
+     <Route path='/specility' element={<Specility/>} />
+     <Route  path='*' element={<NotFound/>} />
     </Routes>
   )
 }

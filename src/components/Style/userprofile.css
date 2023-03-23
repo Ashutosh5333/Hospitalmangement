@@ -1,0 +1,40 @@
+.user-image {
+    /* border: 5px solid rgb(13, 234, 50); */
+      height: 400px;
+}
+
+.UImage{
+   width: 500px;
+   height: 500px;
+   border-radius: 100px;
+}
+
+@media screen and (max-width:1024px) {
+    .UImage{
+        width: 300px;
+        height: 300px;
+     }
+}
+
+
+
+@media screen and (max-width:667px) {
+    .userprofile{
+      flex-direction: column;
+      margin: auto;
+      margin-top: 20px;
+    }
+    .user-image{
+        margin: auto;
+        margin-top: 20px;
+    }
+    .UImage{
+        width: 200px;
+        height: 200px;
+        margin: auto;
+     }
+    .Address-Section{
+        flex-direction: column;
+        margin: auto;
+    }
+}

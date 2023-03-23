@@ -1,5 +1,6 @@
 import {FormControl, Box, Input,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Signup = () => {
@@ -28,13 +29,13 @@ const Signup = () => {
        <Box  margin="auto" justifyContent={"center"} marginLeft="70px" >
        <Image  src="https://regencyhealthcare.in/wp-content/uploads/2022/01/Regency-logo-250x75-1.png" />
              </Box>
-           Khushi Hospital
+      
        
        </Heading>
-           <Text  style={{fontSize:"15px", fontWeight:"650", color:"gray"}}> Sign up </Text>
-
-        
-         <Button fontSize={"1.2em"} fontWeight="600" width="full" background={"blue.500"}  colorScheme="blue" color="#fff" > Login in with Facebook </Button>
+          
+            <Link to="/login">
+         <Button fontSize={"1.2em"} fontWeight="600" width="full" background={"blue.500"}  colorScheme="blue" color="#fff" mt="10"> Login in </Button>
+            </Link>
          
          <br/>
          <br/>

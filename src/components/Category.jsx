@@ -22,11 +22,22 @@ const Category = () => {
          </Box>
 
          <Box   margin="auto" className='category'> 
+          <Link to="/specility">
           <Text  className='text'  fontSize={{ base: "10px", md: "18px", lg: "22px" }}  fontWeight="700"> Specialities </Text>
+          </Link>
          </Box>
+          
+         <Box   margin="auto" className='category'> 
+           <Link to="/faculty">
+          <Text  className='text'  fontSize={{ base: "10px", md: "18px", lg: "22px" }}  fontWeight="700"> Facilties </Text>
+           </Link>
+         </Box>
+         
+         
          <Box   margin="auto" className='category'> 
           <Text   className='text' fontSize={{ base: "10px", md: "18px", lg: "22px" }}  fontWeight="700"> Health Packages </Text>
          </Box>
+
          <Box   margin="auto" className='category'> 
           <Text  className='text'  fontSize={{ base: "10px", md: "18px", lg: "22px" }}  fontWeight="700"> BlogsInvestors </Text>
          </Box>
