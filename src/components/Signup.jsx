@@ -1,16 +1,57 @@
-import {FormControl, Box, Input,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import {FormControl, Box, useToast, Input,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import $ from "jquery"
+import { useDispatch } from 'react-redux';
+import { GetSignup } from '../Redux/AuthReducer/Action';
 
 const Signup = () => {
+ const dispatch = useDispatch()
+ const navigate= useNavigate()
+ const toast=useToast()
+    const [post ,SetPost] = useState({
+       name:"",
+       email:"",
+       password:"",
+       PhNumber:"",
+       Address:"",
+    })
 
     const handleChange = (e) =>{
-       console.log(e.target.value)
+      const {name,value}=e.target
+      SetPost({...post,[name]:value})
     }
-    
-    const handleSubmit = () =>{
+    console.log("post",post)
 
+    const handleSubmit = () =>{
+        console.log("hello")
+        dispatch(GetSignup(post))
+        .then((res) =>{
+         
+          if(res.type === "SINGUPUSERSUCESS" && res.payload !== "user Already exits try Another email" ){
+               
+            toast({
+              position : 'top',
+              colorScheme : 'green', 
+              status : "success",
+              title:"user created Successfully Account"
+          })
+              navigate("/login")
+      }
+      else{
+      
+        toast({
+          position : 'top',
+          colorScheme : 'green', 
+          status : "success",
+          title:res.payload
+      })
+      }
+        })
+        .catch((err)=>{
+         console.log(err)
+        })
+   
     }
 
 
@@ -40,6 +81,14 @@ const Signup = () => {
          
          <br/>
          <br/>
+         <FormControl>
+        
+          <Input type="name" placeholder="Full Name" 
+             name="name"
+             onChange={handleChange} 
+           isRequired/>
+        </FormControl>
+        <br/>
         <FormControl>
          
           <Input type="email" placeholder="Email" 
@@ -49,23 +98,7 @@ const Signup = () => {
            isRequired/>
         </FormControl>
         <br/>
-        <FormControl>
-        
-          <Input type="name" placeholder="Full Name" 
-             name="name"
-             onChange={handleChange} 
-           isRequired/>
-        </FormControl>
-        <br/>
-        <FormControl>
-      
-          <Input type="text" placeholder="Mobile No" 
-           name="number"
-     onChange={handleChange} 
-           isRequired/>
-        </FormControl>
-       
-        <br/>
+   
         <FormControl>
     
           <Input type='password' placeholder="Password"
@@ -74,6 +107,25 @@ const Signup = () => {
            name="password"
            isRequired/>
         </FormControl>
+         
+         <br/>
+        <FormControl>
+      
+          <Input type="text" placeholder="Mobile No" 
+           name="PhNumber"
+                 onChange={handleChange} 
+           isRequired/>
+        </FormControl>
+       
+        <br/>
+        <FormControl>
+      
+          <Input type="text" placeholder="Address" 
+           name="Address"
+                 onChange={handleChange} 
+           isRequired/>
+        </FormControl>
+       
      
 
               <br/>

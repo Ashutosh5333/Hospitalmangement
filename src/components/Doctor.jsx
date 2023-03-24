@@ -11,7 +11,7 @@ const Doctor = () => {
     
     const [isLoading,Setloading] = useState(false)
      const dispatch = useDispatch()
-    const Doctor = useSelector((store) => store.Doctordata)
+    const Doctor = useSelector((store) => store.AppReducer.Doctordata)
     
 
        useEffect(() =>{

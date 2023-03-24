@@ -7,8 +7,8 @@ import Progressloader from '../progressloader/Progress';
 
 const Room = () => {
    const dispatch = useDispatch()
-   const Room = useSelector(store =>  store.RoomData)
-    console.log("Room Data" ,Room)
+   const Room = useSelector(store =>  store.AppReducer.RoomData)
+    
 
      useEffect(() =>{
         dispatch(GetRoomData)

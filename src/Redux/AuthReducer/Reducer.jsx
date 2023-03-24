@@ -7,7 +7,7 @@ const initailState = {
   token:"",
 };
 
-const Reducer = (state = initailState, action) => {
+export const Reducer = (state = initailState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -17,7 +17,7 @@ const Reducer = (state = initailState, action) => {
         isLoading: true,
       };
       
-    case types.SINGUPUSERFAILURE:
+    case types.SINGUPUSERSUCESS:
       return {
         ...state,
         isLoading: false,
@@ -41,4 +41,3 @@ const Reducer = (state = initailState, action) => {
   }
 };
 
-export default Reducer;

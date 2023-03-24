@@ -8,7 +8,7 @@ import Progressloader from './progressloader/Progress';
 
 const Specility = () => {
   const dispatch = useDispatch()
-   const Specilitydata = useSelector((store) =>store.SpecilityData)
+   const Specilitydata = useSelector((store) =>store.AppReducer.SpecilityData)
      console.log(Specilitydata)
 
    useEffect(() =>{

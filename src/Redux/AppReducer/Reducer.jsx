@@ -9,7 +9,7 @@ const initailState = {
   isError: false,
 };
 
-const Reducer = (state = initailState, action) => {
+export const Reducer = (state = initailState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -51,4 +51,4 @@ const Reducer = (state = initailState, action) => {
   }
 };
 
-export default Reducer;
+

@@ -43,9 +43,9 @@ const geLogindatafailure = () =>{
 }
 
 
- export const GetSignup = (dispatch) =>{
+ export const GetSignup = (payload) => (dispatch) =>{
      dispatch(getsignreq())
-    return axios.get(`https://tame-plum-narwhal-kilt.cyclic.app/signup`)
+    return axios.post(`https://tame-plum-narwhal-kilt.cyclic.app/signup`, payload)
      .then((r) =>{
  return        dispatch(getsignsuccess(r.data))
      })
@@ -54,3 +54,17 @@ const geLogindatafailure = () =>{
      })
 
  } 
+
+ 
+
+ export const GetLogin = (payload) => (dispatch) =>{
+   dispatch(getLogindatareq())
+  return axios.post(`https://tame-plum-narwhal-kilt.cyclic.app/login`, payload)
+   .then((r) =>{
+return        dispatch(getLogindatasuccess(r.data))
+   })
+   .catch((err) =>{
+       dispatch(geLogindatafailure())
+   })
+
+} 

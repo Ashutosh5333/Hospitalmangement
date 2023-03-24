@@ -1,16 +1,51 @@
 import {FormControl, Box, Input,FormLabel,  Heading,  Button, Text, Image} from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, Navigate } from 'react-router-dom';
+import { GetLogin } from '../Redux/AuthReducer/Action';
 
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const toast = useToast()
+  const [post ,SetPost] = useState({
+     email:"",
+     password:""
+  })
 
-  const handleChange = () =>{
-
+  const handleChange = (e) =>{
+    const {name,value}=e.target
+    SetPost({...post,[name]:value})
   }
   const handleSubmit = () =>{
-
+       dispatch(GetLogin(post))
+       .then((res) =>{
+          if(res.type==="LOGINUSERSUCESS"){
+                if(res.payload.msg != "user logged in Sucessfully"){
+                  toast({
+                    position : 'top',
+                    colorScheme : 'red',
+                    bg:"red",
+                    status : "success",
+                    description:"Wrong credential"
+                  })
+                }else{
+                  toast({
+                    position : 'top',
+                    colorScheme : 'green', 
+                    status : "success",
+                    title:"Login Successfully"
+                  })
+                
+                  localStorage.setItem("token", JSON.stringify(res.payload.data.token))
+                  Navigate("/")
+                }
+          }
+        // console.log(res.payload.msg)
+       }).catch((err) =>{
+         console.log(err)
+       })
   }
 
   return (
@@ -36,7 +71,7 @@ const Login = () => {
           <br/>
           <br/>
              <Link to="/signup">
-            <Button fontSize={"1.2em"} fontWeight="600" width="full" background={"blue.500"}  colorScheme="blue" color="#fff" >Create you Account</Button>
+            <Button fontSize={"1.2em"} fontWeight="600" width="full" background={"blue.500"}  colorScheme="blue" color="#fff" >Create your Account</Button>
              </Link>
             <br/><br/>
                    <Text>  OR   </Text> 
