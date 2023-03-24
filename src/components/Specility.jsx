@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Button, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box,  Heading, Image, SimpleGrid, Text } from '@chakra-ui/react';
 import { GetSpecilityData } from '../Redux/AppReducer/Action';
 import Progressloader from './progressloader/Progress';
 

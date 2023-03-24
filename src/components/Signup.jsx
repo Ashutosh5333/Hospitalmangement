@@ -1,13 +1,14 @@
 import {FormControl, Box, Input,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import $ from "jquery"
 
 const Signup = () => {
 
-    const handleChange = () =>{
-
+    const handleChange = (e) =>{
+       console.log(e.target.value)
     }
+    
     const handleSubmit = () =>{
 
     }
@@ -58,8 +59,9 @@ const Signup = () => {
         <br/>
         <FormControl>
       
-          <Input type="text" placeholder="UserName" 
-    
+          <Input type="text" placeholder="Mobile No" 
+           name="number"
+     onChange={handleChange} 
            isRequired/>
         </FormControl>
        
@@ -77,8 +79,8 @@ const Signup = () => {
               <br/>
         <Button width="full"  fontSize={"1.2em"} fontWeight="600" type="submit" onClick={handleSubmit} textAlign="center" background={"blue.500"}  colorScheme="blue">Sign up </Button>
 
-           <Text style={{fontSize:"15px", fontWeight:"500", color:"gray"}}> By Signing up, you agree to our  </Text>
-           <Text> <span style={{fontSize:"20px", fontWeight:"600", color:"gray"}}>Terms & Privacy Policy</span> </Text>
+           <Text style={{fontSize:"1rem", fontWeight:"500", color:"black"}}> By Signing up, you agree to our  </Text>
+           <Text> <span style={{fontSize:"1rem", fontWeight:"600", color:"black"}}>Terms & Privacy Policy</span> </Text>
     </Box>
 
      
