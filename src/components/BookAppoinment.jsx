@@ -60,7 +60,9 @@ const BookAppoinment = () => {
   return (
       <Box  width={"95%"} margin="auto" mt="10" border={"1px solid gray"}  >
       {/* ------------------ */}
-            <Box className='Image-background' height="75vh" display="flex" justifyContent={"space-around"} gap="10px" boxShadow="lg"  >
+       
+        {
+          isLoading  ?  <Image margin={"auto"} src="https://media.geeksforgeeks.org/wp-content/uploads/20200805182753/20200805182639.gif" /> : <Box className='Image-background' height="75vh" display="flex" justifyContent={"space-around"} gap="10px" boxShadow="lg"  >
               
               <Box  justifyContent="center"  m="auto"  >
               <Image className='doctor-image' src={single.pic}   width={{ base: "100%", md: "70%", lg: "100%" }} height={{ base: "50vh", md: "60vh", lg: "70vh" }} m="auto"  />
@@ -70,7 +72,10 @@ const BookAppoinment = () => {
                   <Text  fontSize={{ base: "1.2rem", md: "3rem", lg: "4rem" }} lineHeight={"4rem"} fontWeight="600"  fontFamily={"playfair Display"}>{single.name} </Text>
                   <Text  fontSize={{ base: ".8rem", md: "1.5rem", lg: "2rem" }} lineHeight={"4rem"} >{single.consultant} </Text>
               </Box>
-            </Box>
+            </Box> 
+            
+        }
+           
 
          {/* ------------------ form --------------------- */}
 
