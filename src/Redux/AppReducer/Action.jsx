@@ -1,6 +1,7 @@
 import * as types  from "./ActionTypes"
 import axios from "axios"
 
+ const token = JSON.parse(localStorage.getItem("token"))
 
  const getdatareq = () =>{
      return {
@@ -86,6 +87,26 @@ const getspecilitydatafailure = () =>{
   }
 }
 
+const AddtocartReq = () =>{
+    return {
+      type :types.ADDTOCARTREQ
+    }
+}
+
+const AddtocartFailure = () =>{
+   return {
+     type :types.ADDTOCARTFAILURE
+   }
+}
+
+
+ const AddTocartsucess = (payload) =>{
+      return {
+         type :types.ADDTOCARTSUCESS,
+         payload
+      }
+}
+
 
  export const GetDoctorData = (dispatch) =>{
      dispatch(getdatareq())
@@ -128,6 +149,7 @@ return        dispatch(getroomdatasuccess(r.data))
 // ------------- Specility ------------ //
 
 
+
 export const GetSpecilityData =  (dispatch) =>{
    dispatch(getspecilitydatareq())
   return axios.get(`https://tame-plum-narwhal-kilt.cyclic.app/specilty`)
@@ -139,4 +161,26 @@ return        dispatch(getspecilitydatasuccess(r.data))
    })
 
 } 
+
+   //  ----------------   Cart  --------------- //
+
+   
+export const AddToCartData =(payload) =>  (dispatch) =>{
+   dispatch(AddtocartReq())
+  return axios.post(`https://tame-plum-narwhal-kilt.cyclic.app/cart/create`, payload,{
+   headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+  })
+   .then((r) =>{
+return        dispatch(AddTocartsucess(r.data))
+   })
+   .catch((err) =>{
+       dispatch(AddtocartFailure())
+   })
+
+} 
+
+
 

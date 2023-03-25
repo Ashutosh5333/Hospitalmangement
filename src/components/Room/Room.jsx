@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { GetRoomData } from '../../Redux/AppReducer/Action';
+import {  AddToCartData, GetRoomData } from '../../Redux/AppReducer/Action';
 import { Box, Button, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react';
 import Progressloader from '../progressloader/Progress';
 
@@ -13,6 +13,14 @@ const Room = () => {
      useEffect(() =>{
         dispatch(GetRoomData)
      },[])
+
+     const AddToCart = (el) => {
+         dispatch(AddToCartData(el))
+         .then((res) =>{
+          console.log(res)
+         })
+     }
+
 
     
   return (
@@ -32,18 +40,17 @@ const Room = () => {
                          <Image src={el.pic}  alt="doctorimage" width="100%"  height={{ base: "500px", md: "400px", lg: "300px" }} />
                         </Box>
                           
-                         <Box width={"90%"} m="auto" mt="5"p="10px">
-                        <Heading fontSize={"1.6rem"} fontWeight="500" textAlign={"start"}   > { ` $ ${el.price}`} </Heading>
+                         <Box width={"90%"} m="auto" mt="5"p="10px" display={"flex"} justifyContent="space-around" >
+                        <Heading fontSize={{ base: "1.3rem", md: "1rem", lg: "1.6rem" }}   fontWeight="500" textAlign={"start"}   > { ` $ ${el.price}`} </Heading>
+                        <Text color="#444" textAlign={"start"}  fontWeight="600">{`  ${el.category}`}</Text>
                          </Box>
-                     
-                      <Box width={"90%"} m="auto" mt="5" p="10px">
-                       <Text color="#444" textAlign={"start"} lineHeight={"2.7rem"} fontWeight="600">{` ** ${el.category}`}</Text>
-                      </Box>
+
+
                        
                        </Box>
 
                        <Box  mt="10"> 
-                        <Button background={"red.600"} variant="red" color="#FFFFFF" > Book  </Button>
+                        <Button background={"red.600"} variant="red" color="#FFFFFF" onClick={() =>AddToCart(el)}> Add To Cart  </Button>
                        </Box>
                     
                  

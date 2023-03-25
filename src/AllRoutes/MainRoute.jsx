@@ -36,6 +36,7 @@ const MainRoute = () => {
      <Route path='/userprofile' element={<UserProfile/>} />
      <Route path='/faculty' element={<Room/>} />
      <Route path='/specility' element={<Specility/>} />
+     
      <Route  path='*' element={<NotFound/>} />
     </Routes>
   )

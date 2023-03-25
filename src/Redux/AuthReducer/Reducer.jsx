@@ -5,7 +5,7 @@ const initailState = {
   isLoading: false,
   isError: false,
   token:"",
-  Username:[]
+  Userdetail:[]
 };
 
 
@@ -30,15 +30,23 @@ export const Reducer = (state = initailState, action) => {
         ...state,
         isLoading: true,
       };
+
       case  types.LOGINUSERSUCESS : 
       return {
           ...state,
           isLoading:false,
           isError:false,
           token:payload,
-          Username:payload
-
       }
+
+      case  types.GETDETAILSUCESS : 
+      return {
+          ...state,
+          isLoading:false,
+          isError:false,
+          Userdetail:payload,
+      }
+
 
     default:
       return state;

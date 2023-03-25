@@ -12,7 +12,7 @@ const Navbar = () => {
 
  
      const username = JSON.parse(localStorage.getItem("username"))
-     console.log(username)
+  
       const handleLogout = () =>{
           localStorage.clear()
           return <Navigate to="/" />
@@ -44,7 +44,7 @@ const Navbar = () => {
                <Flex width={{base : "", md  : '25%', lg :'15%'}} justifyContent='space-around' fontSize='25px'>
                <Tooltip bg='#CBD5E0' color='black'  label={ username == null ?  'Login' : "LogOut"}><Link to="/login"><Text  onClick={handleLogout} ><BiLogIn/></Text></Link></Tooltip>
                <Tooltip bg='#CBD5E0' color='black' label='Cart'><Link to='/cart'><Text><BsCartCheck/></Text></Link></Tooltip>
-               <Tooltip bg='#CBD5E0' color='black' label={ username == '' ?  'Profile' : username}><Link><Text><FaUserCircle/></Text></Link></Tooltip>
+               <Tooltip bg='#CBD5E0' color='black' label={ username == '' ?  'Profile' : username}><Link to="/userprofile"><Text><FaUserCircle/></Text></Link></Tooltip>
               </Flex>
               </Flex>
           </Flex> 

@@ -1,6 +1,7 @@
 import * as types  from "./ActionTypes"
 import axios from "axios"
 
+ const token = JSON.parse(localStorage.getItem("token"))
 
  const getsignreq = () =>{
      return {
@@ -43,6 +44,26 @@ const geLogindatafailure = () =>{
 }
 
 
+const getUserdetailreq = () =>{
+   return {
+      type:types.GETDETAILREQ 
+   }
+}
+
+const getUserdetailsuccess = (payload) =>{
+  return {
+     type:types.GETDETAILSUCESS,
+     payload 
+  }
+}
+
+const getUserdetailfailure = () =>{
+  return {
+     type:types.GETDETAILFAILURE 
+  }
+}
+
+
  export const GetSignup = (payload) => (dispatch) =>{
      dispatch(getsignreq())
     return axios.post(`https://tame-plum-narwhal-kilt.cyclic.app/signup`, payload)
@@ -65,6 +86,25 @@ return        dispatch(getLogindatasuccess(r.data))
    })
    .catch((err) =>{
        dispatch(geLogindatafailure())
+   })
+
+} 
+
+
+
+export const GetUserData = (dispatch) =>{
+   dispatch(getUserdetailreq())
+  return axios.get(`https://tame-plum-narwhal-kilt.cyclic.app/userdetail`,{
+   headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+  })
+   .then((r) =>{
+return        dispatch(getUserdetailsuccess(r.data))
+   })
+   .catch((err) =>{
+       dispatch(getUserdetailfailure())
    })
 
 } 
