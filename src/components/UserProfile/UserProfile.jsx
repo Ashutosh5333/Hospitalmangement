@@ -26,7 +26,6 @@ const UserProfile = () => {
   return (
     <>
       <Box 
-      // border="5px solid black"
        mt="10">
         <Box >
           {userdetail.length > 0 &&
@@ -35,7 +34,7 @@ const UserProfile = () => {
                 <Box
                   key={el._id}
                   className="userprofile"
-                  // border="1px solid red"
+               
                   width="95vw"
                   m="auto"
                   display="flex"
@@ -55,14 +54,14 @@ const UserProfile = () => {
 
                   <Box
                     className="Address-Section"
-                    // border="3px solid yellow"
+                  
                     width={{ base: "70vw", md: "60vw", lg: "60vw" }}
                     height="50vh"
                     display={"flex"}
                     justifyContent="space-evenly"
                   >
                     <Box
-                      // border="2px solid blue"
+                     
                       height={{ base: "55vh", md: "30vh", lg: "30vh" }}
                       width={{ base: "50vw", md: "40vw", lg: "30vw" }}
                       m="auto"
@@ -97,7 +96,7 @@ const UserProfile = () => {
                     </Box>
 
                     <Box
-                      // border="2px solid blue"
+                    
                       height={{ base: "55vh", md: "30vh", lg: "30vh" }}
                       width={{ base: "50vw", md: "40vw", lg: "30vw" }}
                       m="auto"
@@ -130,7 +129,7 @@ const UserProfile = () => {
         </Box>
 
         <Box 
-        // border="3px solid yellow" 
+     
         height={"40vh"} mt="10">
           <Heading fontFamily="Playfair"> Your Appointment Time </Heading>
 

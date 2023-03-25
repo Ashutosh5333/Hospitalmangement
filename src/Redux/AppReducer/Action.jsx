@@ -3,6 +3,8 @@ import axios from "axios"
 
  const token = JSON.parse(localStorage.getItem("token"))
 
+//  ----------  Doctor  Data ------------- 
+
  const getdatareq = () =>{
      return {
         type:types.GETDOCTORREQ 
@@ -23,6 +25,8 @@ const getdatafailure = () =>{
 }
 
 
+//  ---------- Single Doctor  Data ------------- 
+
 const getsingledatareq = () =>{
     return {
        type:types.GETDOCTORREQ 
@@ -42,7 +46,7 @@ const getsingledatafailure = () =>{
    }
 }
 
-// --------- Room ---------- //
+// --------- Room data ---------- //
 
 
 const getroomdatareq = () =>{
@@ -65,7 +69,7 @@ const geroomdatafailure = () =>{
 }
 
 
-// --------- Specility ---------- //
+// --------- Specility data ---------- //
 
 
 const getspecilitydatareq = () =>{
@@ -87,6 +91,8 @@ const getspecilitydatafailure = () =>{
   }
 }
 
+// ----------------- Add to cart --------------- 
+
 const AddtocartReq = () =>{
     return {
       type :types.ADDTOCARTREQ
@@ -107,6 +113,7 @@ const AddtocartFailure = () =>{
       }
 }
 
+       // -------- get cart data ----------- //
 
 const GettocartReq = () =>{
    return {
@@ -148,6 +155,53 @@ const Deletecartsucess = () =>{
      }
 }
 
+   // ----------- book Appoinmet  --------------- //
+   
+const bookappointReq = () =>{
+   return {
+     type :types.BOOKAPPOINMETREQ
+   }
+}
+
+const bookappointmentFailure = () =>{
+  return {
+    type :types.BOOKAPPOINMETFAILURE
+  }
+}
+
+const bookappointmentsucess = (payload) =>{
+     return {
+        type :types.BOOKAPPOINMETUCESS,
+        payload
+     }
+}
+
+      // ---------- get Appointment data ------------- //
+      
+const getappointReq = () =>{
+   return {
+     type :types.GETAPPOINTDATAREQ
+   }
+}
+
+const getappointmentFailure = () =>{
+  return {
+    type :types.GETAPPOINTDATAFAILURE
+  }
+}
+
+const getappointmentsucess = (payload) =>{
+     return {
+        type :types.GETAPPOINTDATASUCESS,
+        payload
+     }
+}
+
+
+
+
+   // ------------- All Crud Request -----------  //
+
 
  export const GetDoctorData = (dispatch) =>{
      dispatch(getdatareq())
@@ -161,6 +215,7 @@ const Deletecartsucess = () =>{
 
  } 
 
+   // --------- Single Docter ----------- //
  
  export const GetSingleDoctorData = (_id) => (dispatch) =>{
     dispatch(getsingledatareq())
@@ -174,6 +229,7 @@ return        dispatch(getsingledatasuccess(r.data))
 
 } 
 
+ // --------- Room ----------- //
 
 export const GetRoomData =  (dispatch) =>{
     dispatch(getroomdatareq())
@@ -261,4 +317,42 @@ return        dispatch(Deletecartsucess())
    })
 
 } 
- 
+
+
+   // ---------- Book Appointment data ----------- //
+
+export const BookAppointment =(payload) =>  (dispatch) =>{
+   dispatch(bookappointReq())
+  return axios.post(`https://tame-plum-narwhal-kilt.cyclic.app//bookApoint/create`, payload,{
+   headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+  })
+   .then((r) =>{
+return        dispatch(bookappointmentsucess(r.data))
+   })
+   .catch((err) =>{
+       dispatch(bookappointmentFailure())
+   })
+
+} 
+
+   // -----------  get Appointment data  ------------  //
+
+export const getAppointmentdata = (dispatch) =>{
+   dispatch(getappointReq())
+  return axios.get(`https://tame-plum-narwhal-kilt.cyclic.app//bookApoint`, {
+   headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+  })
+   .then((r) =>{
+return        dispatch(getappointmentsucess(r.data))
+   })
+   .catch((err) =>{
+       dispatch(getappointmentFailure())
+   })
+
+} 

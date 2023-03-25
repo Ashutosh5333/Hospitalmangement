@@ -7,7 +7,8 @@ const initailState = {
   Doctordata: [],
   RoomData:[],
   SpecilityData:[],
-  CartItem:[]
+  CartItem:[],
+  BookAppointmentData :[]
 };
 
 
@@ -55,6 +56,13 @@ export const Reducer = (state = initailState, action) => {
             isLoading: false,
             CartItem: payload,
           };
+
+          case types.GETAPPOINTDATASUCESS:
+            return {
+              ...state,
+              isLoading: false,
+              BookAppointmentData: payload,
+            };
 
 
     default:
