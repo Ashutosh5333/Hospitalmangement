@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {  AddToCartData, GetRoomData } from '../../Redux/AppReducer/Action';
-import { Box, Button, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Button, Heading, Image, SimpleGrid, Text, useToast } from '@chakra-ui/react';
 import Progressloader from '../progressloader/Progress';
 
 const Room = () => {
    const dispatch = useDispatch()
+   const toast = useToast()
    const Room = useSelector(store =>  store.AppReducer.RoomData)
     
 
@@ -18,6 +19,12 @@ const Room = () => {
          dispatch(AddToCartData(el))
          .then((res) =>{
           console.log(res)
+          toast({
+            position : 'top',
+            colorScheme : 'green', 
+            status : "success",
+            title:"Cart Added"
+          })
          })
      }
 

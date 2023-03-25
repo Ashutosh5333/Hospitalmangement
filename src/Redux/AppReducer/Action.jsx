@@ -108,6 +108,47 @@ const AddtocartFailure = () =>{
 }
 
 
+const GettocartReq = () =>{
+   return {
+     type :types.GETCARTREQ
+   }
+}
+
+const GettocartFailure = () =>{
+  return {
+    type :types.GETCARTFAILURE
+  }
+}
+
+const GetTocartsucess = (payload) =>{
+     return {
+        type :types.GETCARTSUCESS,
+        payload
+     }
+}
+
+// ------------- Delete cart ------------- //
+
+
+const DeletecartReq = () =>{
+   return {
+     type :types.GETCARTREQ
+   }
+}
+
+const DeletecartFailure = () =>{
+  return {
+    type :types.GETCARTFAILURE
+  }
+}
+
+const Deletecartsucess = () =>{
+     return {
+        type :types.GETCARTSUCESS,
+     }
+}
+
+
  export const GetDoctorData = (dispatch) =>{
      dispatch(getdatareq())
     return axios.get(`https://tame-plum-narwhal-kilt.cyclic.app/doctor`)
@@ -183,4 +224,41 @@ return        dispatch(AddTocartsucess(r.data))
 } 
 
 
+   
+export const GetCartData = (dispatch) =>{
+   dispatch(GettocartReq())
+  return axios.get(`https://tame-plum-narwhal-kilt.cyclic.app/cart`,{
+   headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+  })
+   .then((r) =>{
+return        dispatch(GetTocartsucess(r.data))
+   })
+   .catch((err) =>{
+       dispatch(GettocartFailure())
+   })
 
+} 
+
+        //  ------------------- Delete Cart Item -------------------   //  
+   
+   
+export const DeleteCartData = (_id) => (dispatch) =>{
+   dispatch(DeletecartReq())
+  return axios.delete(`https://tame-plum-narwhal-kilt.cyclic.app/cart/${_id}`,{
+   headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+  })
+   .then((r) =>{
+return        dispatch(Deletecartsucess())
+   })
+   .catch((err) =>{
+ return      dispatch(DeletecartFailure())
+   })
+
+} 
+ 

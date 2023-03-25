@@ -2,7 +2,7 @@ import {FormControl, Box, Input,FormLabel,  Heading,  Button, Text, Image} from 
 import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import { GetLogin } from '../Redux/AuthReducer/Action';
 
 

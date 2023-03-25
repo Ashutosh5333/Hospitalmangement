@@ -1,18 +1,15 @@
 import React from "react";
-import { Box, Spinner } from "@chakra-ui/react";
+import { Box, Image,  } from "@chakra-ui/react";
 
 const Progressloader = () => {
   return (
     <>
-     <Box>
-      <Spinner
-         justifyContent={"center"}
-        thickness="4px"
-        speed="0.65s"
-        emptyColor="gray.200"
-        color="blue.500"
-        size="xl"
-      />
+     <Box  >
+     
+      <Box width={"100%"}   margin={"auto"} justifyContent="center" justifyItems={"center"} position="relative"  left={{ base: "20%", md: "100%", lg: "200%" }}>
+       <Image src="https://media.tenor.com/YPOStjIfQ2IAAAAM/loading-waiting.gif" alt="progressimage"  margin={"auto"} justifyContent="center" />
+      </Box>
+
      </Box>
     </>
   );

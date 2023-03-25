@@ -49,12 +49,12 @@ export const Reducer = (state = initailState, action) => {
           SpecilityData: payload,
         };
 
-        // case types.ADDTOCARTSUCESS:
-        //   return {
-        //     ...state,
-        //     isLoading: false,
-        //     CartItem: payload,
-        //   };
+        case types.GETCARTSUCESS:
+          return {
+            ...state,
+            isLoading: false,
+            CartItem: payload,
+          };
 
 
     default:

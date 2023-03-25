@@ -1,12 +1,7 @@
-.user-image {
-    /* border: 5px solid rgb(13, 234, 50); */
-      height: 400px;
-}
+
 
 .UImage{
-   width: 500px;
-   height: 500px;
-   border-radius: 100px;
+   border-radius: 200px;
 }
 
 @media screen and (max-width:1024px) {
@@ -15,7 +10,6 @@
         height: 300px;
      }
 }
-
 
 
 @media screen and (max-width:667px) {

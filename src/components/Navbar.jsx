@@ -31,10 +31,7 @@ const Navbar = () => {
 
               <Flex as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }} gap='10px' w={{base : '', md : '90%', lg : '95%'}} justifyContent='space-around' alignItems='center' padding='10px'>
                
-               <Flex width={{base : 0, md : "20%", lg :'10%'}} justifyContent='space-around' gap='10px' >
-               <Link to="/dash"><Text _hover={{borderBottom : "1px solid black", fontWeight : "550"}}>Standard </Text></Link>
-               <Link to="/dash"><Text _hover={{borderBottom : "1px solid black", fontWeight : "550"}}>Premium </Text></Link>
-               </Flex>
+              
 
                <Flex width={{base : '0', md : '60%', lg :'65%'}} border={'1px solid black'} padding='5px' alignItems='center'>
                 <Text ml='10px'><BsSearch/></Text>
