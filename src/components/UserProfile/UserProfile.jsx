@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Image, Text } from '@chakra-ui/react';
 import "../Style/userprofile.css"
 
+
 const UserProfile = () => {
 
   

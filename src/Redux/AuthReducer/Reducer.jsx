@@ -5,7 +5,9 @@ const initailState = {
   isLoading: false,
   isError: false,
   token:"",
+  Username:[]
 };
+
 
 export const Reducer = (state = initailState, action) => {
   const { type, payload } = action;
@@ -33,7 +35,9 @@ export const Reducer = (state = initailState, action) => {
           ...state,
           isLoading:false,
           isError:false,
-          token:payload
+          token:payload,
+          Username:payload
+
       }
 
     default:

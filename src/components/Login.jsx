@@ -2,11 +2,12 @@ import {FormControl, Box, Input,FormLabel,  Heading,  Button, Text, Image} from 
 import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { GetLogin } from '../Redux/AuthReducer/Action';
 
 
 const Login = () => {
+   const navigate = useNavigate()
   const dispatch = useDispatch();
   const toast = useToast()
   const [post ,SetPost] = useState({
@@ -18,10 +19,12 @@ const Login = () => {
     const {name,value}=e.target
     SetPost({...post,[name]:value})
   }
+  
   const handleSubmit = () =>{
        dispatch(GetLogin(post))
        .then((res) =>{
-          if(res.type==="LOGINUSERSUCESS"){
+         console.log(res)
+          if(res.type =="LOGINUSERSUCESS"){
                 if(res.payload.msg != "user logged in Sucessfully"){
                   toast({
                     position : 'top',
@@ -38,13 +41,12 @@ const Login = () => {
                     title:"Login Successfully"
                   })
                 
-                  localStorage.setItem("token", JSON.stringify(res.payload.data.token))
-                  Navigate("/")
+                  localStorage.setItem("token", JSON.stringify(res.payload.token))
+                   localStorage.setItem("username",JSON.stringify(res.payload.displayname))
+                  // navigate("/")
                 }
           }
-        // console.log(res.payload.msg)
-       }).catch((err) =>{
-         console.log(err)
+      
        })
   }
 
