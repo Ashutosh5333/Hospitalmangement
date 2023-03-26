@@ -3,18 +3,9 @@ import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import "../Style/userprofile.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetUserData } from "../../Redux/AuthReducer/Action";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  TableContainer,
-} from "@chakra-ui/react";
+
 import { getAppointmentdata } from "../../Redux/AppReducer/Action";
+import Userform from "./Userform";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -22,7 +13,7 @@ const UserProfile = () => {
   const BookAppoinment = useSelector(
     (store) => store.AppReducer.BookAppointmentData
   );
-  console.log("Bookappoinmt", BookAppoinment);
+
 
   useEffect(() => {
     dispatch(GetUserData);
@@ -32,9 +23,15 @@ const UserProfile = () => {
     dispatch(getAppointmentdata);
   }, []);
 
+
+
   return (
     <>
       <Box mt="10">
+
+      {
+
+         userdetail.length> 0 ? 
         <Box>
           {userdetail.length > 0 &&
             userdetail.map((el) => {
@@ -56,7 +53,7 @@ const UserProfile = () => {
                     className="user-image"
                     width={{ base: "80%", md: "90v%", lg: "100%" }}
                   >
-                    <Image className="UImage" src={el.pic} alt="Image" />
+                    <Image className="UImage" src={"https://www.shutterstock.com/image-vector/user-login-authenticate-icon-human-260nw-1365533969.jpg"} alt="Image" />
                   </Box>
 
                   <Box
@@ -123,14 +120,20 @@ const UserProfile = () => {
                       >
                         {" "}
                         <span style={{ fontWeight: "600" }}>Mobile</span>: -{" "}
-                        {el.PhNumber}{" "}
+                        {el.Mobile}{" "}
                       </Text>
                     </Box>
                   </Box>
                 </Box>
               );
             })}
-        </Box>
+        </Box> :<Box margin={"auto"}>
+            <Text fontSize={{ base: "1rem", md: "2rem", lg: "3.2rem" }}  fontFamily="Playfair" fontWeight={"600"}> Fill your Details </Text>
+                       <Userform/>
+             <Image justifyContent={"center"} src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41jLBhDISxL._SY355_.jpg" alt="Emptycart" />
+       </Box>
+      }
+
 
         <Box height={"40vh"} mt="10">
          
@@ -160,12 +163,14 @@ const UserProfile = () => {
 
          }
 
-
-
         </Box>
 
         {/*  --------------  */}
       </Box>
+         
+
+
+
     </>
   );
 };

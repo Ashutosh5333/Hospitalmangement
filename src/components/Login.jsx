@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = () =>{
        dispatch(GetLogin(post))
        .then((res) =>{
-         console.log(res)
+        //  console.log(res)
           if(res.type =="LOGINUSERSUCESS"){
                 if(res.payload.msg != "user logged in Sucessfully"){
                   toast({
@@ -43,7 +43,7 @@ const Login = () => {
                 
                   localStorage.setItem("token", JSON.stringify(res.payload.token))
                    localStorage.setItem("username",JSON.stringify(res.payload.displayname))
-                  // navigate("/")
+                  navigate("/")
                 }
           }
       

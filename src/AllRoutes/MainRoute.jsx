@@ -32,7 +32,12 @@ const MainRoute = () => {
       <PrivateRoute>  <BookAppoinment/> </PrivateRoute>
     }/>
 
-     <Route path='/userprofile' element={<UserProfile/>} />
+     <Route path='/userprofile' element={
+      <PrivateRoute>
+     <UserProfile/>
+      </PrivateRoute>
+     } />
+
      <Route path='/faculty' element={<Room/>} />
      <Route path='/specility' element={<Specility/>} />
      
