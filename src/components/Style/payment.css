@@ -1,0 +1,18 @@
+
+@media screen and (max-width:667px) {
+    .payment{
+         flex-direction: column;
+          margin-top: 10px;
+    }
+    .payment-text{
+      margin-top: 10px;
+    }   
+    .Container{
+        flex-direction: column;
+    }
+    .confirmpayment{
+        margin: auto;
+        text-align: center;
+    }
+    
+}

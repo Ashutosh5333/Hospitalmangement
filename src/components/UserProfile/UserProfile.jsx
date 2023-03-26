@@ -1,23 +1,27 @@
-import React, { useEffect } from "react";
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import "../Style/userprofile.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetUserData } from "../../Redux/AuthReducer/Action";
 
 import { getAppointmentdata } from "../../Redux/AppReducer/Action";
 import Userform from "./Userform";
+import Progressloader from "../progressloader/Progress";
 
 const UserProfile = () => {
+  const [isLoading,Setloading] = useState(false)
   const dispatch = useDispatch();
   const userdetail = useSelector((store) => store.AuthReducer.Userdetail);
-  console.log(userdetail)
+
   const BookAppoinment = useSelector(
     (store) => store.AppReducer.BookAppointmentData
   );
 
 
   useEffect(() => {
+     Setloading(true)
     dispatch(GetUserData);
+    Setloading(false)
   }, []);
 
   useEffect(() => {
@@ -29,7 +33,9 @@ const UserProfile = () => {
   return (
     <>
       <Box mt="10">
-
+  
+    {
+         isLoading ? <Progressloader/> :<Box>      
       {
          userdetail.length> 0 ? 
         <Box>
@@ -133,8 +139,13 @@ const UserProfile = () => {
                        <Userform/>
             </Box>
       }
+    </Box>
+    }
+ 
+     
 
-
+ 
+      {/* ------------------ */}
 
         <Box height={"40vh"} mt="10">
          

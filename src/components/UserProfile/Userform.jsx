@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"
-import { useDispatch } from "react-redux";
 import {  Modal,  ModalOverlay,  ModalContent,  ModalBody,  Box,  Text,  Button,  useDisclosure,Input,  Image,} from "@chakra-ui/react";
 import { BiArrowBack } from "react-icons/bi";
 
@@ -25,7 +24,7 @@ const Userform = () => {
            PhNumber,
            pic:url
       }
-      console.log(payload)
+
          useEffect(() =>{
            if(url){
             axios.post(`https://tame-plum-narwhal-kilt.cyclic.app/userdetail/create`, payload,{

@@ -4,9 +4,11 @@ import { DeleteCartData, GetCartData } from '../Redux/AppReducer/Action'
 import { Box, Button, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react';
 import Progressloader from './progressloader/Progress';
 import { useToast } from '@chakra-ui/react'
+import { Link, Navigate, useNavigate} from 'react-router-dom';
 
 const Roomcart = () => {
   const dispatch = useDispatch()
+   const navigate = useNavigate
    const toast = useToast()
   const Roomcart = useSelector(store =>  store.AppReducer.CartItem)
     
@@ -30,8 +32,11 @@ const Roomcart = () => {
 
     useEffect(() =>{
       dispatch(GetCartData)
-     
+      
    },[])
+
+  
+
   return (
     <>
      <Box>
@@ -79,6 +84,13 @@ const Roomcart = () => {
 
       
       </Box>
+
+          <Link to="/payment">
+         <Box mt="20"  >
+            <Button p="10" colorScheme={"red"} fontSize={"2rem"} textAlign="end" justifyContent={"flex-end"} > Confirm </Button>
+          </Box>
+          </Link>
+
      </Box>
 
 

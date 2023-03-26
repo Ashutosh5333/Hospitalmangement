@@ -11,6 +11,7 @@ import UserProfile from '../components/UserProfile/UserProfile';
 import Room from './../components/Room/Room';
 import Specility from '../components/Specility';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
+import Payment from '../components/Payment';
 
 
 const MainRoute = () => {
@@ -40,6 +41,7 @@ const MainRoute = () => {
 
      <Route path='/faculty' element={<Room/>} />
      <Route path='/specility' element={<Specility/>} />
+     <Route path='/payment' element={<Payment/>} />
      
      <Route  path='*' element={<NotFound/>} />
     </Routes>
