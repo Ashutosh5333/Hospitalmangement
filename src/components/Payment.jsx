@@ -1,19 +1,29 @@
-import { Box, Button, Image, Text, useToast } from '@chakra-ui/react'
+import { Box, Button, Image, Link, Text, useDisclosure, useToast } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+} from '@chakra-ui/react'
 import { GetCartData } from '../Redux/AppReducer/Action'
 import "./Style/payment.css"
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Payment = () => {
   const dispatch = useDispatch()
   const [total , SetTotal ] = useState(0)
+  const navigate = useNavigate()
  const Roomcart = useSelector(store =>  store.AppReducer.CartItem)
-    // console.log( "roomcart",Roomcart)
- 
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const cancelRef = React.useRef()
+  
     useEffect(() =>{
       dispatch(GetCartData)
      
@@ -27,11 +37,15 @@ const Payment = () => {
         })
         SetTotal(ans)
     }
-    // console.log(total)
+   
 
      useEffect(() =>{
        totalPrice()
      },)
+
+     const handlehome = () =>{
+      navigate("/")
+     }
     
 
 
@@ -63,7 +77,40 @@ const Payment = () => {
                 <Text color="#444" fontFamily={"playfair"} m="auto" textAlign={"start"} fontSize={{ base: ".8rem", md: "1.2rem", lg: "2rem" }} fontWeight={"600"} mt="5"> Disount : - 00  </Text>
                 <Text color="#444" fontFamily={"playfair"} m="auto" textAlign={"start"} fontSize={{ base: ".8rem", md: "1.2rem", lg: "2rem" }} fontWeight={"600"} mt="5"> Total Price : - {total} </Text>
 
-                <Button colorScheme={"green"} mt="5"> Payment </Button>
+                {/* <Button colorScheme={"green"} mt="5"> Payment </Button> */}
+                <Button  colorScheme={"green"} onClick={onOpen}>
+                Confirm payment
+      </Button>
+
+      <AlertDialog
+        isOpen={isOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+             Confirm payment
+            </AlertDialogHeader>
+
+            <AlertDialogBody>
+             Thank you for Visiting Our websites 
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                Cancel
+              </Button>
+               <Link to="/" >
+              <Button colorScheme='red' onClick={handlehome} textDecoration={"none"} ml={3}>
+                Done
+              </Button>
+               </Link>
+
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
            </Box>
            
           

@@ -1,13 +1,16 @@
 import {FormControl, Box, useToast, Input,  Heading,  Button, Text, Image,} from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import $ from "jquery"
+import $, { error } from "jquery"
 import { useDispatch } from 'react-redux';
 import { GetSignup } from '../Redux/AuthReducer/Action';
+
 
 const Signup = () => {
  const dispatch = useDispatch()
  const navigate= useNavigate()
+ const [errors ,SetErrors] = useState({})
+ const [IsSubmit ,SetIsSubmit] = useState(false)
  const toast=useToast()
     const [post ,SetPost] = useState({
        name:"",
@@ -16,15 +19,19 @@ const Signup = () => {
        PhNumber:"",
        Address:"",
     })
+ 
+  
 
     const handleChange = (e) =>{
       const {name,value}=e.target
       SetPost({...post,[name]:value})
     }
-    console.log("post",post)
+  
 
     const handleSubmit = () =>{
-        console.log("hello")
+        // console.log("hello")
+        SetErrors(validated(post))
+        SetIsSubmit(true)
         dispatch(GetSignup(post))
         .then((res) =>{
          
@@ -53,7 +60,40 @@ const Signup = () => {
         })
    
     }
+        
+    useEffect(() =>{
+      console.log("error" ,errors)
+     if(Object.keys(errors).length === 0 && IsSubmit){
+        console.log("post",post)
+     }
+    },[errors])
 
+     const validated = (values) =>{
+       const error ={}
+       const regex = /^[^s@]+@[^\s@]+\.[^\^\^s@]{2,}$/i
+        if(!values.name){
+         error.name="Username is required"
+        }
+        if(!values.email){
+          error.email="Useremail is required"
+         }else if (!regex.test(values.email)){
+          error.email="This  is Not required email format"
+         }
+         if(!values.password){
+          error.password="UserPassword is required"
+         }else if (values.password.length<4){
+          error.password="password must be more than 4 charecter"
+         }else if (values.password.length>10){
+          error.password="password can not exceed more than 10 charecter"
+         }
+         if(!values.PhNumber){
+          error.PhNumber="UserNumber is required"
+         }
+         if(!values.Address){
+          error.Address="UserAddress is required"
+         }
+       return error
+     }
 
   return (
     <>
@@ -88,6 +128,7 @@ const Signup = () => {
              onChange={handleChange} 
            isRequired/>
         </FormControl>
+          <Text> {errors.name} </Text>
         <br/>
         <FormControl>
          
@@ -97,6 +138,7 @@ const Signup = () => {
            name="email"
            isRequired/>
         </FormControl>
+        <Text> {errors.email} </Text>
         <br/>
    
         <FormControl>
@@ -107,7 +149,7 @@ const Signup = () => {
            name="password"
            isRequired/>
         </FormControl>
-         
+        <Text> {errors.password} </Text>
          <br/>
         <FormControl>
       
@@ -116,7 +158,7 @@ const Signup = () => {
                  onChange={handleChange} 
            isRequired/>
         </FormControl>
-       
+        <Text> {errors.PhNumber} </Text>
         <br/>
         <FormControl>
       
@@ -125,7 +167,7 @@ const Signup = () => {
                  onChange={handleChange} 
            isRequired/>
         </FormControl>
-       
+        <Text> {errors.Address} </Text>
      
 
               <br/>

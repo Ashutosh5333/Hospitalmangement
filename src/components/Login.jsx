@@ -1,14 +1,17 @@
 import {FormControl, Box, Input,FormLabel,  Heading,  Button, Text, Image} from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link,  useNavigate } from 'react-router-dom';
 import { GetLogin } from '../Redux/AuthReducer/Action';
 
 
+
 const Login = () => {
    const navigate = useNavigate()
   const dispatch = useDispatch();
+  const [errors ,SetErrors] = useState({})
+  const [IsSubmit ,SetIsSubmit] = useState(false)
   const toast = useToast()
   const [post ,SetPost] = useState({
      email:"",
@@ -21,6 +24,8 @@ const Login = () => {
   }
   
   const handleSubmit = () =>{
+    SetErrors(validated(post))
+    SetIsSubmit(true)
        dispatch(GetLogin(post))
        .then((res) =>{
         //  console.log(res)
@@ -49,6 +54,32 @@ const Login = () => {
       
        })
   }
+
+     
+  useEffect(() =>{
+    // console.log("error" ,errors)
+   if(Object.keys(errors).length === 0 && IsSubmit){
+      // console.log("post",post)
+   }
+  },[errors])
+
+   const validated = (values) =>{
+     const error ={}
+     const regex = /^[^s@]+@[^\s@]+\.[^\^\^s@]{2,}$/i
+      if(!values.email){
+        error.email="Useremail is required"
+       }else if (!regex.test(values.email)){
+        error.email="This  is Not required email format"
+       }
+       if(!values.password){
+        error.password="UserPassword is required"
+       }else if (values.password.length<4){
+        error.password="password must be more than 4 charecter"
+       }else if (values.password.length>10){
+        error.password="password can not exceed more than 10 charecter"
+       }
+     return error
+   }
 
   return (
     <> 
@@ -86,6 +117,7 @@ const Login = () => {
               name="email"
               />
            </FormControl>
+           <Text> {errors.email} </Text>
            <br/>  
            <FormControl>
              <FormLabel variant="filled" my="10px"></FormLabel>
@@ -95,6 +127,7 @@ const Login = () => {
               name="password"
               />
            </FormControl>
+           <Text> {errors.password} </Text>
            <br/>
            <Button type="submit" fontWeight="700" width="full" colorScheme="blue" color="#fff" onClick={handleSubmit}  textAlign="center" >Log in</Button>
            <br/>

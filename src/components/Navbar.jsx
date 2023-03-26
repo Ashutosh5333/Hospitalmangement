@@ -48,8 +48,7 @@ const Navbar = () => {
           {isOpen ? (
             <Box pb={4} display={{ md: 'none' }} >
               <Stack as={'nav'} spacing={4}>
-                  <Link to='/dash'><Text>Standard</Text></Link>
-                  <Link to='/dash'><Text>Premium</Text></Link>
+                   <Link to="/userprofile"><Text>user profile</Text> </Link> 
                   <Link to='/cart'><Text>CART</Text></Link>
                   <Link to='/signup'><Text>SIGN UP</Text></Link>
                   <Link to='/login'><Text>LOG IN</Text></Link>

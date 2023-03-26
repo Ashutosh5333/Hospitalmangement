@@ -14,7 +14,6 @@ const BookAppoinment = () => {
 
     const [book ,SetBook] = useState({
          name:"",
-         email:"",
          Doctor:"",
          Mobile:"",
          Date:"",
@@ -91,12 +90,10 @@ const BookAppoinment = () => {
                <Box  mt="20px" >
                   <Box  display={"flex"} justifyContent="space-around" gap={"10px"} className="input">
                       <Input placeholder='Your name *'  background={"#fff"} width="100%" name="name"  onChange={handleChange}/>
-                      <Input placeholder='Your Email *' background={"#fff"} width="100%" name="email"  onChange={handleChange}/>
-                  </Box>
-
-                  <Box display={"flex"} justifyContent="space-around" gap={"10px"} mt="20px"  className="input">
                       <Input placeholder='Doctor Name*' background={"#fff"} width="100%" name="Doctor" onChange={handleChange}/>
                   </Box>
+
+                
                   <Box display={"flex"} justifyContent="space-around" gap={"10px"} mt="20px"  className="input">
                       <Input placeholder='Phone Number *' background={"#fff"} width="100%" name="Mobile" onChange={handleChange} />
                       <Input type={"datetime-local"}  background={"#fff"} width="100%" name="Date" onChange={handleChange} />
