@@ -77,7 +77,7 @@ const Payment = () => {
                 <Text color="#444" fontFamily={"playfair"} m="auto" textAlign={"start"} fontSize={{ base: ".8rem", md: "1.2rem", lg: "2rem" }} fontWeight={"600"} mt="5"> Disount : - 00  </Text>
                 <Text color="#444" fontFamily={"playfair"} m="auto" textAlign={"start"} fontSize={{ base: ".8rem", md: "1.2rem", lg: "2rem" }} fontWeight={"600"} mt="5"> Total Price : - {total} </Text>
 
-                {/* <Button colorScheme={"green"} mt="5"> Payment </Button> */}
+             
                 <Button  colorScheme={"green"} onClick={onOpen}>
                 Confirm payment
       </Button>

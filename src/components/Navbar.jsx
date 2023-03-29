@@ -15,7 +15,6 @@ const Navbar = () => {
   
       const handleLogout = () =>{
           localStorage.clear()
-          return <Navigate to="/" />
       }
 
 

@@ -34,7 +34,6 @@ const Userform = () => {
                },
              })
              .then((res) =>{
-              console.log(res)
              }).catch((err) =>{
               console.log(err)
              })
@@ -53,12 +52,12 @@ const Userform = () => {
       .then(res =>res.json())
       .then(data =>{
          SetUrl(data.url)
-        console.log(data.url)
+
       }).catch(err =>{
         console.log(err)
       })
    }
-//  console.log(url)
+
 
   const handleSubmit = () => {
       postImage()
@@ -121,7 +120,7 @@ const Userform = () => {
 {/* ------- Image -----  */}
 
               <Box
-                // border="1px solid black"
+               
                 borderRadius={10}
                 margin={"auto"}
                 mt="4"
@@ -138,7 +137,7 @@ const Userform = () => {
                     style={{ display: "none", margin: "auto" }}
                     name="image"
                     onChange={(e) => SetImage(e.target.files[0])}
-                    // onChange={(e) => console.log(e.target.files[0])}
+                  
                   />
                 </label>
               </Box>

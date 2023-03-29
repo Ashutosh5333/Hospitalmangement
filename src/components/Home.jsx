@@ -3,6 +3,8 @@ import { Box, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import { BsBarChartSteps } from "react-icons/bs";
 import { data } from "./Data/data";
 
+
+
 const Home = () => {
   return (
     <>
@@ -28,8 +30,10 @@ const Home = () => {
                     background="#DB2637"
                     width={{ base: "90%", md: "95%", lg: "100%" }}
                     margin="auto"
+                    mt="6"
                     shadow={"lg"}
                     height="40vh"
+                    overflow={"hidden"}
                   >
                     <Box width="95%" margin={"auto"}>
                       <Box mt="4">
@@ -49,6 +53,7 @@ const Home = () => {
                           color="#FFFFFF"
                           lineHeight={"1.5rem"}
                           textAlign={"start"}
+                          fontSize={{ base: ".8rem", md: "1rem", lg: "1.2rem" }}
                         >
                           {" "}
                           {el.description}{" "}
@@ -64,7 +69,7 @@ const Home = () => {
         <Box  width="90%" m="auto" height={"60vh"}>
           <Heading
             textAlign={"start"}
-            fontSize={{ base: "2.2rem", md: "3rem", lg: "5rem" }}
+            fontSize={{ base: "2rem", md: "3rem", lg: "5rem" }}
             fontFamily="Playfair"
             color="brown"
             mt="10"
@@ -75,7 +80,7 @@ const Home = () => {
 
           <Text
             textAlign={"start"}
-            fontSize={{ base: "1rem", md: "1.2rem", lg: "1.5rem" }}
+            fontSize={{ base: ".8rem", md: "1.2rem", lg: "1.5rem" }}
             fontFamily="Playfair"
             color="#444"
             mt="10"

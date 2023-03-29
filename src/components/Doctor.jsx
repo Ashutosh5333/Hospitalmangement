@@ -25,10 +25,10 @@ const Doctor = () => {
      <Box mt="5">
 
          <Box>
-           <Image background-repeat="no-repeat" width={"100%"} height="40vh" src="https://regencyhealthcare.in/wp-content/uploads/2020/02/Doctor-Page-Banner-1200x408-1.png" />
-            <Box position={"relative"} top="-40"   >
-               <Heading textAlign={"start"}  fontSize={{ base: "2.2rem", md: "3rem", lg: "4rem" }}  fontFamily="Playfair" color="#fff" ml="10"> Get To Know Our Specialists </Heading>
-                <Text textAlign={"start"}  fontSize={{ base: "1rem", md: "1rem", lg: "1.2rem" }}  fontFamily="Playfair" color="#fff" ml="10" mt="10"  > Regency Health prides itself on a melange of super-specialized team of doctors with eons of experience. </Text>
+           <Image background-repeat="no-repeat" width={{base : "95%", md :'95%', lg : '100%'}} m="auto" height="50vh" src="https://regencyhealthcare.in/wp-content/uploads/2020/02/Doctor-Page-Banner-1200x408-1.png" />
+            <Box position={"relative"} top="-60"   >
+               <Heading  textAlign={{base : "center", md :'start', lg : 'start'}}  fontSize={{ base: "1.5rem", md: "3rem", lg: "4rem" }}  fontFamily="Playfair" color="#fff" ml="10"> Get To Know Our Specialists </Heading>
+                <Text    textAlign={{base : "start", md :'start', lg : 'start'}}  fontSize={{ base: "1rem", md: "1.2rem", lg: "2rem" }}  fontFamily="Playfair" color="#fff"  ml="10" mt="10"  > Regency Health prides itself on a melange of super-specialized team of doctors with eons of experience. </Text>
             </Box>
          </Box>
 

@@ -29,7 +29,7 @@ const Signup = () => {
   
 
     const handleSubmit = () =>{
-        // console.log("hello")
+        
         SetErrors(validated(post))
         SetIsSubmit(true)
         dispatch(GetSignup(post))
@@ -62,9 +62,9 @@ const Signup = () => {
     }
         
     useEffect(() =>{
-      console.log("error" ,errors)
+  
      if(Object.keys(errors).length === 0 && IsSubmit){
-        console.log("post",post)
+        
      }
     },[errors])
 

@@ -57,9 +57,9 @@ const Login = () => {
 
      
   useEffect(() =>{
-    // console.log("error" ,errors)
+
    if(Object.keys(errors).length === 0 && IsSubmit){
-      // console.log("post",post)
+    
    }
   },[errors])
 

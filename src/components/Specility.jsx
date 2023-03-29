@@ -9,7 +9,7 @@ import Progressloader from './progressloader/Progress';
 const Specility = () => {
   const dispatch = useDispatch()
    const Specilitydata = useSelector((store) =>store.AppReducer.SpecilityData)
-     console.log(Specilitydata)
+    //  console.log(Specilitydata)
 
    useEffect(() =>{
      dispatch(GetSpecilityData)
@@ -20,7 +20,7 @@ const Specility = () => {
      <Box mt="5">
 
 <Box>
-  <Image background-repeat="no-repeat" width={"100%"} height="40vh" src="https://regencyhealthcare.in/wp-content/uploads/2020/02/Doctor-Page-Banner-1200x408-1.png" />
+  <Image background-repeat="no-repeat" width={{base : "90%", md :'90%', lg : '100%'}} m="auto" height="40vh" src="https://regencyhealthcare.in/wp-content/uploads/2020/02/Doctor-Page-Banner-1200x408-1.png" />
    <Box position={"relative"} top="-40"   >
       <Heading textAlign={"start"}  fontSize={{ base: "2.2rem", md: "3rem", lg: "4rem" }}  fontFamily="Playfair" color="#fff" ml="10"> Specialities </Heading>
        <Text textAlign={"start"}  fontSize={{ base: "1rem", md: "1rem", lg: "1.2rem" }}  fontFamily="Playfair" color="#fff" ml="10" mt="10"  > Our domains of excellence </Text>
